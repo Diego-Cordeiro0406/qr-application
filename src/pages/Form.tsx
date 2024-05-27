@@ -17,11 +17,16 @@ export default function Form() {
     navigate('/qrpage')
   }
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const novoValor = event.target.value;
+    setInputData(novoValor);
+  };
+
   return (
     <section>
       <input
         type="text"
-        // onChange={setInputData}
+        onChange={handleInputChange}
         value={inputData}
         />
       <button onClick={onClick}>Gerar</button>
