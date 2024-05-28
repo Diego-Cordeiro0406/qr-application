@@ -3,18 +3,18 @@ import { useState, useContext } from 'react'
 import { Context } from '../context/Context'
 import { useNavigate } from 'react-router-dom'
 
-export default function Form() {
+export default function FormSite() {
   const [inputData, setInputData] = useState('')
   const navigate = useNavigate()
 
   const context = useContext(Context)
   if (!context) return null;
-  const { setData } = context
+  const { setDataSite } = context
 
   const onClick = () => {
-    setData(inputData)
+    setDataSite(inputData)
     setInputData('')
-    navigate('/qrpage')
+    navigate('/qr-page')
   }
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

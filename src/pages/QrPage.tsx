@@ -1,13 +1,15 @@
-import { useContext } from 'react'
-
+import { useContext, useState } from 'react'
 import { Context } from '../context/Context'
 import { QRCodeCanvas } from 'qrcode.react';
+import PIX from 'react-qrcode-pix';
 
 export default function QrPage() {
-  // const [c, setC] = useState()
+  const [qrCode, setQrCode] = useState<string>();
+  console.log(qrCode)
+  
   const context = useContext(Context)
   if (!context) return null;
-  const { data } = context
+  const { dataSite, formDataPix, setFormDataPix } = context
 
   const handleDownload = async() => {
     let qrCodeURL = document.getElementById('qrCodeEl') as HTMLCanvasElement
@@ -27,12 +29,31 @@ export default function QrPage() {
   }
   
   return (
-    <section>
-      <QRCodeCanvas
-        id="qrCodeEl"
-        value={`${data}`}
-        includeMargin={true}
+    <section style={{
+      backgroundColor: 'black',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingBottom: 10,
+      paddingTop: 10
+  }}>
+      {
+        formDataPix.key ? (
+          <PIX
+            pixkey={formDataPix.key}
+            merchant={formDataPix.name}
+            city={formDataPix.city}
+            padding={20}
+          />
+        ) : (
+          <QRCodeCanvas
+            id="qrCodeEl"
+            value={`${dataSite}`}
+            includeMargin={true}
       />
+        )
+      }
+      
       <main>
         <button onClick={() => handleDownload()}>Download</button>
         <button>Compartilhar</button>

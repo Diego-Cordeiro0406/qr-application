@@ -1,12 +1,16 @@
 import { Routes, Route } from "react-router-dom"
-import Form from "./pages/Form"
+import FormSite from "./pages/FormSite"
 import QrPage from "./pages/QrPage"
+import Home from "./pages/Home"
+import FormPix from "./pages/FormPix"
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={ <Form /> } />
-      <Route path="/qrpage" element={ <QrPage /> } />
+      <Route path="/" element={ <Home /> } />
+      <Route path="/form-site" element={ <FormSite /> } />
+      <Route path="/form-pix" element={ <FormPix /> } />
+      <Route path="/qr-page" element={ <QrPage /> } />
     </Routes>
   )
 }
