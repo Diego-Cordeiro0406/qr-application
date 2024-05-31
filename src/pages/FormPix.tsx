@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 export default function FormPix() {
    const navigate = useNavigate()
    const context = useContext(Context)
+   
    if (!context) return null;
    const { setFormDataPix, formDataPix } = context
 
    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement  | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-
     const newValue = name === 'value' ? Number(value) : value;
     setFormDataPix(prevFormData => ({
        ...prevFormData,
@@ -53,15 +53,6 @@ export default function FormPix() {
           value={formDataPix.transactionId}
           name="transactionId"
           id="input-transactionId"
-          type="text"
-          onChange={ handleInputChange }
-        />
-
-        <label htmlFor="input-message">Mensagem</label>
-        <input
-          value={formDataPix.message}
-          name="message"
-          id="input-message"
           type="text"
           onChange={ handleInputChange }
         />

@@ -1,7 +1,6 @@
 import { useState, ReactNode } from "react";
 import { Context, MyContextProps } from "./Context";
 import { IParameter } from "../types/types";
-import { QrCodePix } from 'qrcode-pix';
 
 interface MyProviderProps {
   children: ReactNode;
@@ -10,42 +9,36 @@ interface MyProviderProps {
 const Provider = ({ children }: MyProviderProps) => {
   const [dataSite, setDataSite] = useState('');
   const [formDataPix, setFormDataPix] = useState<IParameter>({
-    version: '01',
     key: '',
     name: '',
     city: '',
     transactionId: '',
-    message: '',
     value: 0
   });
-  const [qrCode, setQrCode] = useState<string>('');
 
-  async function generateDynamicPix() {
-    /*
-        version: '01' //versão do pix (não altere)
-        key: chave pix
-        name: seu nome/empresa
-        city: sua cidade
-        transactionId: é o identificador que aparecerá no momento do pix (max: 25 caracteres)
-        message: mensagem que aparecerá no momento do pix (opcional)
-        value: valor que você quer cobrar (opcional)
-    */
-    const qrCodePix = QrCodePix(formDataPix)
+  const handleDownload = async() => {
+    let qrCodeURL = document.querySelector('canvas') as HTMLCanvasElement
+    if(qrCodeURL) {
+      const url = qrCodeURL
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      console.log(qrCodeURL)
+      let link = document.createElement("a");
+      link.href = url;
+      link.download = "QR_Code.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }    
+  }
 
-    // const rawPixStr = qrCodePix.payload()
-    const qrCodeBase64 = await qrCodePix.base64()
-
-    // setRawPix(rawPixStr)
-    setQrCode(qrCodeBase64)
-}
 
   const values: MyContextProps = {
     dataSite,
     setDataSite,
     formDataPix,
     setFormDataPix,
-    qrCode,
-    generateDynamicPix
+    handleDownload
   }
 
  return (

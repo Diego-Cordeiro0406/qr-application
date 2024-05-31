@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom"
+import './App.css'
 import FormSite from "./pages/FormSite"
 import QrPage from "./pages/QrPage"
 import Home from "./pages/Home"

@@ -6,8 +6,7 @@ export interface MyContextProps {
   setDataSite: Dispatch<SetStateAction<InputState>>,
   formDataPix: IParameter,
   setFormDataPix: Dispatch<SetStateAction<IParameter>>,
-  qrCode: InputState,
-  generateDynamicPix: () => void
+  handleDownload: () => void
 }
 
 export const Context = createContext<MyContextProps | undefined>(undefined)
