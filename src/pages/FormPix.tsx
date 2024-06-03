@@ -19,52 +19,70 @@ export default function FormPix() {
    };
 
   return (
-    <section>
-      <form>
-        <label htmlFor="input-key">Chave</label>
-        <input
-          value={formDataPix.key}
-          name="key"
-          id="input-key"
-          type="text"
-          onChange={ handleInputChange }
-        />
+    <section className="flex flex-col w-full h-full bg-[#CCE0D6]">
+      <form className="flex flex-col items-center w-full h-full bg-[#CCE0D6] mt-10">
+        <div className="flex flex-col w-11/12 mb-4">
+          <label className="font-bold" htmlFor="input-key">Chave</label>
+          <input 
+            className="rounded-sm h-7"
+            value={formDataPix.key}
+            name="key"
+            id="input-key"
+            type="text"
+            onChange={ handleInputChange }
+          />
+        </div>
+        
+        <div className="flex flex-col w-11/12 mb-4">
+          <label className="font-bold" htmlFor="input-name">Nome</label>
+          <input
+            className="rounded-sm h-7"
+            value={formDataPix.name}
+            name="name"
+            id="input-name"
+            type="text"
+            onChange={ handleInputChange }
+          />
+        </div>
 
-        <label htmlFor="input-name">Nome</label>
-        <input
-          value={formDataPix.name}
-          name="name"
-          id="input-name"
-          type="text"
-          onChange={ handleInputChange }
-        />
-
-        <label htmlFor="input-city">Cidade</label>
-        <input
-          value={formDataPix.city}
-          name="city"
-          id="input-city"
-          type="text"
-          onChange={ handleInputChange }
-        />
-
-        <label htmlFor="input-transactionId">Identificador</label>
-        <input
-          value={formDataPix.transactionId}
-          name="transactionId"
-          id="input-transactionId"
-          type="text"
-          onChange={ handleInputChange }
-        />
-
-        <label htmlFor="input-value">Valor</label>
-        <input
-          value={formDataPix.value}
-          name="value"
-          id="input-value"
-          type="number"
-          onChange={ handleInputChange }
-        />
+        <div className="flex flex-col w-11/12 mb-4">
+          <label className="font-bold" htmlFor="input-city">Cidade</label>
+          <input
+            className="rounded-sm h-7"
+            value={formDataPix.city}
+            name="city"
+            id="input-city"
+            type="text"
+            onChange={ handleInputChange }
+          />
+        </div>
+        
+        
+        <div className="flex flex-col w-11/12 mb-4">
+          <label className="font-bold" htmlFor="input-transactionId">Identificador</label>
+          <input
+            className="rounded-sm h-7"
+            value={formDataPix.transactionId}
+            name="transactionId"
+            id="input-transactionId"
+            type="text"
+            onChange={ handleInputChange }
+          />
+        </div>
+        
+        <div className="flex flex-col w-11/12 mb-4">
+          <label className="font-bold" htmlFor="input-value">Valor</label>
+          <input
+            className="rounded-sm h-7"
+            value={formDataPix.value}
+            name="value"
+            id="input-value"
+            type="number"
+            onChange={ handleInputChange }
+          />
+          <div className="width" />
+        </div>
+        
         <button onClick={() => navigate('/qr-page')}>Gerar</button>
       </form>
     </section>
