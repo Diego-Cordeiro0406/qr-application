@@ -83,7 +83,12 @@ export default function FormPix() {
           <div className="width" />
         </div>
         
-        <button onClick={() => navigate('/qr-page')}>Gerar</button>
+        <button
+          className="bg-blue-700 disabled:bg-red-600 h-10 mobile:w-4/5 rounded-md text-white font-bold"
+          onClick={() => navigate('/qr-page')}
+        >
+          GERAR
+        </button>
       </form>
     </section>
   )
