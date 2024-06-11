@@ -1,18 +1,6 @@
 import { useNavigate } from "react-router-dom"
-// import { useState } from "react"
 
 export default function Home() {
-  // const [touched, setTouched] = useState(false)
-
-  // const toggleTouched = () => {
-  //   setTouched( prevState => !prevState);
-  // }
-  
-  // const handleMouseUp = () => {
-  //   setTimeout( () => {
-  //     setTouched(false);
-  //   }, 150);
-  // }
   const navigate = useNavigate()
   return (
     <section
@@ -36,10 +24,9 @@ export default function Home() {
         "
         >
         <button
-          // onMouseDown={toggleTouched}
-          // onMouseUp={handleMouseUp}
           className="
-            w-4/5
+            mobile:w-4/5
+            laptop:w-[37.5rem]
             h-10
             bg-blue-600
             rounded-lg
@@ -51,7 +38,15 @@ export default function Home() {
           PIX
         </button>
         <button
-          className="w-4/5 h-10 bg-blue-600 rounded-lg font-bold text-white"
+          className="
+            mobile:w-4/5
+            laptop:w-[37.5rem]
+            h-10
+            bg-blue-600
+            rounded-lg
+            font-bold
+            text-white
+          "
           onClick={() => navigate('/form-site')}
         >
           SITE

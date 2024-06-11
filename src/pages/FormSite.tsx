@@ -23,13 +23,43 @@ export default function FormSite() {
   };
 
   return (
-    <section>
-      <input
-        type="text"
-        onChange={handleInputChange}
-        value={inputData}
-        />
-      <button onClick={onClick}>Gerar</button>
+    <section
+      className="
+        flex
+        flex-col
+        w-full
+        h-full
+        bg-[#CCE0D6]
+        items-center
+        justify-center
+      "
+      >
+        <div className="flex flex-col mobile:w-11/12 laptop:w-[51.25rem] mb-4">
+          <label className="font-bold" htmlFor="input-site">Site</label>
+          <input
+            id="input-site"
+            placeholder="ex. github.com"
+            className="rounded-sm h-7"
+            type="text"
+            onChange={handleInputChange}
+            value={inputData}
+          />
+        </div>
+        <button
+          className="
+            bg-blue-700
+            disabled:bg-red-600
+            h-10
+            mobile:w-4/5
+            laptop:w-[30.625rem]
+            rounded-md
+            text-white
+            font-bold
+          "
+          onClick={onClick}
+        >
+          Gerar
+      </button>
     </section>
   )
 }

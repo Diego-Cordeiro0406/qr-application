@@ -10,14 +10,7 @@ export default function QrPage() {
   const { dataSite, formDataPix, handleDownload } = context
 
   return (
-    <section style={{
-      backgroundColor: 'black',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingBottom: 10,
-      paddingTop: 10
-  }}>
+    <section className="flex flex-col items-center justify-center w-full h-full bg-[#CCE0D6]">
       {
         formDataPix.key ? (
           <PIX
@@ -30,15 +23,39 @@ export default function QrPage() {
           />
         ) : (
           <QRCodeCanvas
+            size={256}
             value={`${dataSite}`}
             includeMargin={true}
       />
         )
       }
       
-      <section>
-        <button onClick={() => handleDownload()}>Download</button>
-        <button>Compartilhar</button>
+      <section className="flex flex-col w-[16rem] items-center justify-center mt-6">
+        <button
+          className="
+            bg-blue-700
+            h-10
+            mobile:w-full
+            rounded-md
+            text-white
+            font-bold
+            mb-4
+          "
+          onClick={() => handleDownload()}
+        >
+          Download
+        </button>
+        <button
+          className="
+            bg-blue-700
+            h-10
+            mobile:w-full
+            rounded-md
+            text-white
+            font-bold"
+          >
+            Compartilhar
+          </button>
       </section>
     </section>
   )

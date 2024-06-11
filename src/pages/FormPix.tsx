@@ -19,12 +19,30 @@ export default function FormPix() {
    };
 
   return (
-    <section className="flex flex-col w-full h-full bg-[#CCE0D6]">
-      <form className="flex flex-col items-center w-full h-full bg-[#CCE0D6] mt-10">
-        <div className="flex flex-col w-11/12 mb-4">
+    <section className="flex flex-col w-full h-full bg-[#CCE0D6] laptop:items-center laptop:justify-center">
+      <form
+        className="
+          flex
+          flex-col
+          items-center
+          mobile:w-full
+          mobile:h-full
+          laptop:w-3/5
+          mobile:bg-[#CCE0D6]
+          laptop:bg-[#b7cec2]
+          mobile:mt-10
+          laptop:mt-0
+          laptop:h-auto
+          laptop:py-10
+          laptop:rounded-md
+          laptop:shadow
+        "
+        >
+        <div className="flex flex-col mobile:w-11/12 laptop:w-4/5 mb-4">
           <label className="font-bold" htmlFor="input-key">Chave</label>
           <input 
-            className="rounded-sm h-7"
+            className="rounded-sm h-7 pl-1"
+            placeholder="ex. joazinho@email.com"
             value={formDataPix.key}
             name="key"
             id="input-key"
@@ -33,10 +51,11 @@ export default function FormPix() {
           />
         </div>
         
-        <div className="flex flex-col w-11/12 mb-4">
+        <div className="flex flex-col mobile:w-11/12 laptop:w-4/5 mb-4">
           <label className="font-bold" htmlFor="input-name">Nome</label>
           <input
-            className="rounded-sm h-7"
+            className="rounded-sm h-7 pl-1"
+            placeholder="ex. joazinho silva"
             value={formDataPix.name}
             name="name"
             id="input-name"
@@ -45,10 +64,11 @@ export default function FormPix() {
           />
         </div>
 
-        <div className="flex flex-col w-11/12 mb-4">
+        <div className="flex flex-col mobile:w-11/12 laptop:w-4/5 mb-4">
           <label className="font-bold" htmlFor="input-city">Cidade</label>
           <input
-            className="rounded-sm h-7"
+            className="rounded-sm h-7 pl-1"
+            placeholder="ex. Petrolina"
             value={formDataPix.city}
             name="city"
             id="input-city"
@@ -58,10 +78,11 @@ export default function FormPix() {
         </div>
         
         
-        <div className="flex flex-col w-11/12 mb-4">
+        <div className="flex flex-col mobile:w-11/12 laptop:w-4/5 mb-4">
           <label className="font-bold" htmlFor="input-transactionId">Identificador</label>
           <input
-            className="rounded-sm h-7"
+            className="rounded-sm h-7 pl-1"
+            placeholder="ex. joazinho_silva"
             value={formDataPix.transactionId}
             name="transactionId"
             id="input-transactionId"
@@ -70,21 +91,29 @@ export default function FormPix() {
           />
         </div>
         
-        <div className="flex flex-col w-11/12 mb-4">
-          <label className="font-bold" htmlFor="input-value">Valor</label>
+        <div className="flex flex-col mobile:w-11/12 laptop:w-4/5 mb-4">
+          <label className="font-bold" htmlFor="input-value">Valor(R$)</label>
           <input
-            className="rounded-sm h-7"
+            className="rounded-sm h-7 pl-1"
+            placeholder="ex. 10"
             value={formDataPix.value}
             name="value"
             id="input-value"
             type="number"
             onChange={ handleInputChange }
           />
-          <div className="width" />
         </div>
         
         <button
-          className="bg-blue-700 disabled:bg-red-600 h-10 mobile:w-4/5 rounded-md text-white font-bold"
+          className="
+            bg-blue-700
+            disabled:bg-red-600
+            h-10
+            mobile:w-4/5
+            rounded-md
+            text-white
+            font-bold
+          "
           onClick={() => navigate('/qr-page')}
         >
           GERAR
