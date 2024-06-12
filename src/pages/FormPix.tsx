@@ -27,7 +27,7 @@ export default function FormPix() {
           items-center
           mobile:w-full
           mobile:h-full
-          laptop:w-3/5
+          laptop:w-[37.5rem]
           mobile:bg-[#CCE0D6]
           laptop:bg-[#b7cec2]
           mobile:mt-10

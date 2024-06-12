@@ -39,7 +39,7 @@ export default function FormSite() {
           <input
             id="input-site"
             placeholder="ex. github.com"
-            className="rounded-sm h-7"
+            className="rounded-sm h-7 pl-1"
             type="text"
             onChange={handleInputChange}
             value={inputData}
